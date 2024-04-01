@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "./api/head";
-import GlobaProvider from "./globaProvider";
+import GlobalProvider from "./GlobaProvider";
 import Script from "next/script";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <Head />
       <body className={inter.className}>
-        <GlobaProvider>{children}</GlobaProvider>
+        <GlobalProvider>
+          <Header />
+          {children}
+          <Footer />
+        </GlobalProvider>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></Script>
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
