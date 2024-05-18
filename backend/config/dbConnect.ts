@@ -10,10 +10,10 @@ const dbConnect = async () => {
   if (process.env.NODE_ENV === "development")
     DB_URL = process.env.DB_LOCAL_URL!;
   if (process.env.NODE_ENV === "production")
-   DB_URL = process.env.DB_URL!;
+    DB_URL = process.env.DB_URL!;
 
 
-   await mongoose.connect(DB_URL).then((con) => console.log('db connected'));
+  await mongoose.connect(DB_URL).then((con) => console.log('db connected'));
 };
 
 export default dbConnect;
